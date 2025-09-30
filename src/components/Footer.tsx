@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from "lucide-react";
+import fluxCodeLogo from "@/assets/fluxcode-logo.jpg";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,9 +10,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg"></div>
-              <h3 className="text-xl font-bold text-foreground">FluxCode</h3>
+            <div className="flex items-center space-x-3">
+              <img src={fluxCodeLogo} alt="FluxCode Logo" className="h-12" />
             </div>
             <p className="text-muted-foreground text-sm">
               Transformando negócios através de automação inteligente e 

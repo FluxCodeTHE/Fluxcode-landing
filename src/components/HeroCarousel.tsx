@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
+import fluxCodeLogo from "@/assets/fluxcode-logo.jpg";
 
 interface CarouselSlide {
   id: number;
@@ -81,15 +82,20 @@ export const HeroCarousel = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="container mx-auto px-6 lg:px-8">
                   <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-gradient animate-fade-in">
+                    <img 
+                      src={fluxCodeLogo} 
+                      alt="FluxCode Logo" 
+                      className="h-24 lg:h-32 mx-auto mb-8 animate-fade-in"
+                    />
+                    <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-gradient animate-fade-in [animation-delay:200ms]">
                       {slide.title}
                     </h1>
-                    <p className="text-xl lg:text-2xl mb-8 text-foreground/90 animate-fade-in [animation-delay:200ms] max-w-3xl mx-auto">
+                    <p className="text-xl lg:text-2xl mb-8 text-foreground/90 animate-fade-in [animation-delay:400ms] max-w-3xl mx-auto">
                       {slide.description}
                     </p>
                     <Button
                       size="lg"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg glow-effect smooth-transition animate-fade-in [animation-delay:400ms]"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg glow-effect smooth-transition animate-fade-in [animation-delay:600ms]"
                     >
                       {slide.cta}
                     </Button>
