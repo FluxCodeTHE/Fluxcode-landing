@@ -60,8 +60,12 @@ export const HeroCarousel = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 hero-gradient">
+    <section className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-background via-background to-card">
+      <div className="absolute inset-0 hero-gradient opacity-95">
+        {/* Animated background elements */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse [animation-delay:1s]"></div>
+        
         <div className="relative h-full">
           {slides.map((slide, index) => (
             <div
@@ -70,35 +74,36 @@ export const HeroCarousel = () => {
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div
-                className="h-full bg-cover bg-center bg-no-repeat"
-                style={{
-                  backgroundImage: `url(${slide.image})`,
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/40" />
-              </div>
-              
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="container mx-auto px-6 lg:px-8">
-                  <div className="max-w-4xl mx-auto text-center">
-                    <img 
-                      src={fluxCodeLogo} 
-                      alt="FluxCode Logo" 
-                      className="h-24 lg:h-32 mx-auto mb-8 animate-fade-in"
-                    />
-                    <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-gradient animate-fade-in [animation-delay:200ms]">
-                      {slide.title}
-                    </h1>
-                    <p className="text-xl lg:text-2xl mb-8 text-foreground/90 animate-fade-in [animation-delay:400ms] max-w-3xl mx-auto">
-                      {slide.description}
-                    </p>
-                    <Button
-                      size="lg"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg glow-effect smooth-transition animate-fade-in [animation-delay:600ms]"
-                    >
-                      {slide.cta}
-                    </Button>
+                  <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+                    {/* Logo e Branding */}
+                    <div className="flex justify-center lg:justify-end order-2 lg:order-1">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-20 blur-3xl rounded-full"></div>
+                        <img 
+                          src={fluxCodeLogo} 
+                          alt="FluxCode Logo" 
+                          className="relative w-full max-w-md lg:max-w-lg h-auto object-contain drop-shadow-2xl animate-fade-in"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="text-center lg:text-left order-1 lg:order-2">
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-gradient animate-fade-in leading-tight">
+                        {slide.title}
+                      </h1>
+                      <p className="text-lg sm:text-xl lg:text-2xl mb-8 text-foreground/90 animate-fade-in [animation-delay:200ms] leading-relaxed">
+                        {slide.description}
+                      </p>
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 text-white px-8 py-6 text-lg font-semibold rounded-xl shadow-2xl glow-effect smooth-transition animate-fade-in [animation-delay:400ms]"
+                      >
+                        {slide.cta}
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -111,19 +116,19 @@ export const HeroCarousel = () => {
       <Button
         variant="outline"
         size="icon"
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-card/80 border-border hover:bg-card smooth-transition"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-card/60 backdrop-blur-sm border-primary/30 hover:bg-card/80 hover:border-primary smooth-transition"
         onClick={prevSlide}
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-6 h-6 text-primary" />
       </Button>
 
       <Button
         variant="outline"
         size="icon"
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-card/80 border-border hover:bg-card smooth-transition"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-card/60 backdrop-blur-sm border-primary/30 hover:bg-card/80 hover:border-primary smooth-transition"
         onClick={nextSlide}
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-6 h-6 text-primary" />
       </Button>
 
       {/* Dots Indicator */}
