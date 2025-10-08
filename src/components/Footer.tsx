@@ -11,7 +11,7 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={fluxCodeLogo} alt="FluxCode Logo" className="h-12" />
+              <img src={fluxCodeLogo} alt="FluxCode Logo" className="h-20 w-auto object-contain" />
             </div>
             <p className="text-muted-foreground text-sm">
               Transformando negócios através de automação inteligente e 
