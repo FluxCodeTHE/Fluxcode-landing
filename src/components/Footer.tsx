@@ -10,10 +10,10 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <img src={fluxCodeLogo} alt="FluxCode Logo" className="h-20 w-auto" />
+            <div className="flex justify-center md:justify-start">
+              <img src={fluxCodeLogo} alt="FluxCode Logo" className="h-28 w-auto" />
             </div>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm text-center md:text-left">
               Transformando negócios através de automação inteligente e 
               agentes de IA. Soluções personalizadas para o futuro digital.
             </p>
