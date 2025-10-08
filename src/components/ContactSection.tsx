@@ -103,19 +103,19 @@ export const ContactSection = () => {
                     <div className="p-3 bg-primary/10 rounded-lg">
                       <info.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-foreground mb-1">
                         {info.title}
                       </h4>
                       {info.link ? (
                         <a 
                           href={info.link}
-                          className="text-muted-foreground hover:text-primary smooth-transition"
+                          className="text-muted-foreground hover:text-primary smooth-transition text-sm break-words"
                         >
                           {info.content}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground">{info.content}</p>
+                        <p className="text-muted-foreground text-sm">{info.content}</p>
                       )}
                     </div>
                   </div>
