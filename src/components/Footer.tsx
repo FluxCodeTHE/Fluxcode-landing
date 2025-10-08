@@ -101,10 +101,10 @@ export const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                 <a 
-                  href="mailto:contato@fluxcode.com.br"
+                  href="mailto:maricesa.sousa@fluxcodethe.com.br"
                   className="text-muted-foreground hover:text-primary smooth-transition text-sm"
                 >
-                  contato@fluxcode.com.br
+                  maricesa.sousa@fluxcodethe.com.br
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -119,7 +119,7 @@ export const Footer = () => {
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  São Paulo, SP - Brasil
+                  Teresina, PI - Brasil
                 </span>
               </div>
             </div>
