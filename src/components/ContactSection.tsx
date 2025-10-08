@@ -11,8 +11,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "contato@fluxcode.com.br",
-    link: "mailto:contato@fluxcode.com.br"
+    content: "maricesa.sousa@fluxcodethe.com.br",
+    link: "mailto:maricesa.sousa@fluxcodethe.com.br"
   },
   {
     icon: Phone,
@@ -23,7 +23,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Localização",
-    content: "São Paulo, SP - Brasil",
+    content: "Teresina, PI - Brasil",
     link: null
   },
   {
