@@ -59,7 +59,7 @@ export const HeroCarousel = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-background">
+    <section id="inicio" className="relative h-screen w-full overflow-hidden bg-background pt-20">
       <div className="absolute inset-0 hero-gradient">
         {/* Subtle background patterns */}
         <div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
