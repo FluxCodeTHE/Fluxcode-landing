@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Instagram } from "lucide-react";
-import fluxCodeLogo from "@/assets/logo_fluxcode.png";
+import fluxCodeLogo from "@/assets/logo_fluxcode_new.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();

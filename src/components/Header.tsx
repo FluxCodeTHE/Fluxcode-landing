@@ -1,4 +1,4 @@
-import fluxCodeLogo from "@/assets/logo_fluxcode.png";
+import fluxCodeLogo from "@/assets/logo_fluxcode_new.png";
 import { Button } from "@/components/ui/button";
 
 export const Header = () => {

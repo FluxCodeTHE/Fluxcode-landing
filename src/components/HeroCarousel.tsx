@@ -59,7 +59,7 @@ export const HeroCarousel = () => {
   };
 
   return (
-    <section id="inicio" className="relative h-screen w-full overflow-hidden bg-background pt-20">
+    <section id="inicio" className="relative h-screen w-full overflow-visible bg-background pt-20 pb-10">
       <div className="absolute inset-0 hero-gradient">
         {/* Subtle background patterns */}
         <div className="absolute top-20 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -70,7 +70,7 @@ export const HeroCarousel = () => {
             <div
               key={slide.id}
               className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentSlide ? "opacity-100" : "opacity-0"
+                index === currentSlide ? "opacity-100 visible pointer-events-auto z-10" : "opacity-0 invisible pointer-events-none z-0"
               }`}
             >
               <div className="absolute inset-0 flex items-center justify-center">
