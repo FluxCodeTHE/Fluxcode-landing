@@ -28,7 +28,10 @@ export const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <Button className="bg-gradient-to-r from-primary via-secondary to-accent text-white hover:opacity-90 smooth-transition">
+          <Button 
+            variant="gradient"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Fale Conosco
           </Button>
         </div>

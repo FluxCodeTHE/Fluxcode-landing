@@ -84,7 +84,9 @@ export const HeroCarousel = () => {
                     </p>
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 text-white px-10 py-6 text-lg font-semibold rounded-xl shadow-lg smooth-transition animate-fade-in [animation-delay:400ms]"
+                      variant="gradient"
+                      className="px-10 py-6 text-lg font-semibold rounded-xl animate-fade-in [animation-delay:400ms] pulse-glow"
+                      onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       {slide.cta}
                     </Button>

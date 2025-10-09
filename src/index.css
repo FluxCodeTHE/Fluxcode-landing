@@ -11,9 +11,10 @@ All colors MUST be HSL.
     --background: 0 0% 100%;
     --foreground: 0 0% 29%;
 
-    /* FluxCode color palette */
-    --primary: 202 89% 57%;
+    /* FluxCode color palette - Enhanced with darker blue */
+    --primary: 223 82% 50%;
     --primary-foreground: 0 0% 100%;
+    --primary-hover: 223 82% 45%;
     
     --secondary: 264 97% 62%;
     --secondary-foreground: 0 0% 100%;
@@ -22,7 +23,7 @@ All colors MUST be HSL.
     --accent-foreground: 0 0% 100%;
     
     --flux-red: 349 100% 62%;
-    --flux-blue: 202 89% 57%;
+    --flux-blue: 223 82% 50%;
     --flux-purple: 264 97% 62%;
     --flux-orange: 14 100% 62%;
 
@@ -73,6 +74,8 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     background: var(--gradient-hero);
     min-height: 100vh;
+    font-size: 17px;
+    scroll-behavior: smooth;
   }
 }
 
@@ -106,5 +109,27 @@ All colors MUST be HSL.
   
   .border-gradient {
     border-image: var(--gradient-primary) 1;
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px hsl(var(--primary) / 0.2);
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
+    }
   }
 }

@@ -95,7 +95,7 @@ export const ContactSection = () => {
             {contactInfo.map((info, index) => (
               <Card 
                 key={index} 
-                className="card-gradient hover:scale-105 smooth-transition animate-fade-in"
+                className="card-gradient hover-lift animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-6">
@@ -156,9 +156,10 @@ export const ContactSection = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="Seu nome completo"
+                        placeholder="Nome"
                         required
-                        className="bg-input border-border"
+                        className="bg-input border-border focus:border-primary transition-colors"
+                        aria-label="Nome completo"
                       />
                     </div>
                     <div className="space-y-2">
@@ -171,9 +172,10 @@ export const ContactSection = () => {
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="seu@email.com"
+                        placeholder="email@exemplo.com"
                         required
-                        className="bg-input border-border"
+                        className="bg-input border-border focus:border-primary transition-colors"
+                        aria-label="Endereço de email"
                       />
                     </div>
                   </div>
@@ -188,8 +190,9 @@ export const ContactSection = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        placeholder="Nome da sua empresa"
-                        className="bg-input border-border"
+                        placeholder="Empresa (opcional)"
+                        className="bg-input border-border focus:border-primary transition-colors"
+                        aria-label="Nome da empresa"
                       />
                     </div>
                     <div className="space-y-2">
@@ -201,8 +204,9 @@ export const ContactSection = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="(11) 99999-9999"
-                        className="bg-input border-border"
+                        placeholder="Telefone (opcional)"
+                        className="bg-input border-border focus:border-primary transition-colors"
+                        aria-label="Número de telefone"
                       />
                     </div>
                   </div>
@@ -216,17 +220,20 @@ export const ContactSection = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Conte-nos sobre seu projeto e como podemos ajudar..."
+                      placeholder="Descreva seu projeto..."
                       rows={6}
                       required
-                      className="bg-input border-border resize-none"
+                      className="bg-input border-border resize-none focus:border-primary transition-colors"
+                      aria-label="Mensagem"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground glow-effect smooth-transition"
+                    variant="gradient"
+                    className="w-full"
+                    aria-label="Enviar mensagem"
                   >
                     <Send className="w-5 h-5 mr-2" />
                     Enviar Mensagem

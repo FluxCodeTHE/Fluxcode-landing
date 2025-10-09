@@ -5,7 +5,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-gradient-to-b from-card to-muted/30 border-t border-border">
       <div className="container mx-auto px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -18,13 +18,13 @@ export const Footer = () => {
               agentes de IA. Soluções personalizadas para o futuro digital.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition">
+              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition hover:scale-110" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition">
+              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition hover:scale-110" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition">
+              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition hover:scale-110" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
