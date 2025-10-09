@@ -76,10 +76,10 @@ export const HeroCarousel = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="container mx-auto px-6 lg:px-8">
                   <div className="max-w-5xl mx-auto text-center">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-gradient animate-fade-in leading-tight" style={{ lineHeight: '1.2' }}>
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-10 sm:mb-12 lg:mb-14 text-gradient animate-fade-in leading-tight" style={{ lineHeight: '1.2' }}>
                       {slide.title}
                     </h1>
-                    <p className="text-lg sm:text-xl lg:text-2xl mb-10 text-foreground/80 animate-fade-in [animation-delay:200ms] max-w-4xl mx-auto leading-relaxed">
+                    <p className="text-lg sm:text-xl lg:text-2xl mt-0 mb-8 sm:mb-10 lg:mb-12 text-foreground/80 animate-fade-in [animation-delay:200ms] max-w-4xl mx-auto leading-relaxed">
                       {slide.description}
                     </p>
                     <Button
