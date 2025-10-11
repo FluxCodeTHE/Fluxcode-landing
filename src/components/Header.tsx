@@ -13,16 +13,39 @@ export const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#inicio" className="text-muted-foreground hover:text-primary smooth-transition">
+            <a 
+              href="#inicio" 
+              onClick={(e) => { e.preventDefault(); document.getElementById('inicio')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="text-muted-foreground hover:text-primary smooth-transition cursor-pointer"
+            >
               Início
             </a>
-            <a href="#servicos" className="text-muted-foreground hover:text-primary smooth-transition">
+            <a 
+              href="#servicos" 
+              onClick={(e) => { e.preventDefault(); document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="text-muted-foreground hover:text-primary smooth-transition cursor-pointer"
+            >
               Serviços
             </a>
-            <a href="#sobre" className="text-muted-foreground hover:text-primary smooth-transition">
+            <a 
+              href="#sobre" 
+              onClick={(e) => { e.preventDefault(); document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="text-muted-foreground hover:text-primary smooth-transition cursor-pointer"
+            >
               Sobre
             </a>
-            <a href="#contato" className="text-muted-foreground hover:text-primary smooth-transition">
+            <a 
+              href="#depoimentos" 
+              onClick={(e) => { e.preventDefault(); document.getElementById('depoimentos')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="text-muted-foreground hover:text-primary smooth-transition cursor-pointer"
+            >
+              Depoimentos
+            </a>
+            <a 
+              href="#contato" 
+              onClick={(e) => { e.preventDefault(); document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="text-muted-foreground hover:text-primary smooth-transition cursor-pointer"
+            >
               Contato
             </a>
           </nav>

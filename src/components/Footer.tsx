@@ -35,27 +35,47 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold text-foreground">Serviços</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#servicos" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Automação com IA
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#servicos" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Web Scraping
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#servicos" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Desenvolvimento Web
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#servicos" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Programação Personalizada
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#servicos" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Integração de Sistemas
                 </a>
               </li>
@@ -67,28 +87,39 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold text-foreground">Links Rápidos</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#sobre" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#sobre" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Sobre Nós
                 </a>
               </li>
               <li>
-                <a href="#servicos" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#servicos" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Nossos Serviços
                 </a>
               </li>
               <li>
-                <a href="#contato" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
+                <a 
+                  href="#depoimentos" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('depoimentos')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
+                  Depoimentos
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#contato" 
+                  onClick={(e) => { e.preventDefault(); document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="text-muted-foreground hover:text-primary smooth-transition text-sm cursor-pointer"
+                >
                   Contato
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
-                  Política de Privacidade
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary smooth-transition text-sm">
-                  Termos de Uso
                 </a>
               </li>
             </ul>
