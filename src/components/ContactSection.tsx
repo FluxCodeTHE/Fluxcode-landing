@@ -73,7 +73,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
+    <section id="contato" className="py-20 px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gradient">
