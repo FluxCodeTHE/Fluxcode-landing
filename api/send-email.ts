@@ -50,7 +50,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Send notification email to FluxCode
     const notificationEmail = await resend.emails.send({
-      from: 'FluxCode Website <onboarding@resend.dev>', // You'll update this after domain verification
+      from: 'FluxCode Website <contato@fluxcodethe.com.br>',
       to: ['maricesa.sousa@fluxcodethe.com.br'],
       subject: `Novo contato via site - ${sanitizedData.name}`,
       html: `
@@ -108,7 +108,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Send confirmation email to the client
     const confirmationEmail = await resend.emails.send({
-      from: 'FluxCode <onboarding@resend.dev>', // You'll update this after domain verification
+      from: 'FluxCode <contato@fluxcodethe.com.br>',
       to: [sanitizedData.email],
       subject: 'Recebemos sua mensagem - FluxCode',
       html: `
