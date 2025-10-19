@@ -13,10 +13,10 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Carlos Silva",
-    role: "CEO",
-    company: "TechCorp Brasil",
-    content: "A FluxCode transformou nossos processos de negócio. A automação com IA reduziu em 70% o tempo gasto em tarefas repetitivas. Excelente trabalho!",
+    name: "Karen Souto",
+    role: "Proprietária",
+    company: "vitrinedosbichos.com.br",
+    content: "O site ficou incrível! Moderno, fácil de navegar e com um design que valoriza cada produto. Um trabalho de desenvolvimento impecável, que transformou a loja virtual em uma verdadeira vitrine de sucesso!",
     rating: 5
   },
   {
