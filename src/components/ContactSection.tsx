@@ -1,11 +1,34 @@
 import { useState } from "react";
-import { Send, Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+
+const contactFormSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, "Nome é obrigatório")
+    .max(100, "Nome deve ter no máximo 100 caracteres"),
+  email: z.string()
+    .trim()
+    .email("Email inválido")
+    .max(255, "Email deve ter no máximo 255 caracteres"),
+  company: z.string()
+    .max(100, "Nome da empresa deve ter no máximo 100 caracteres")
+    .optional(),
+  phone: z.string()
+    .regex(/^[\d\s\-\+\(\)]{10,20}$/, "Telefone inválido")
+    .optional()
+    .or(z.literal("")),
+  message: z.string()
+    .trim()
+    .min(10, "Mensagem deve ter no mínimo 10 caracteres")
+    .max(2000, "Mensagem deve ter no máximo 2000 caracteres"),
+});
 
 const contactInfo = [
   {
@@ -42,6 +65,9 @@ export const ContactSection = () => {
     phone: "",
     message: ""
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const { toast } = useToast();
 
@@ -53,23 +79,75 @@ export const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
     
-    // Simulate form submission
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve. Obrigado pelo interesse!",
-    });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      phone: "",
-      message: ""
-    });
+    // Validate form data
+    try {
+      const validatedData = contactFormSchema.parse(formData);
+      
+      setIsSubmitting(true);
+      
+      // Send to Vercel Function
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(validatedData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao enviar mensagem');
+      }
+      
+      toast({
+        title: "✅ Mensagem enviada!",
+        description: "Obrigado pelo contato! Responderemos em até 24 horas.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        message: ""
+      });
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        // Validation errors
+        const fieldErrors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0].toString()] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+        
+        toast({
+          title: "❌ Erro de validação",
+          description: "Por favor, verifique os campos do formulário.",
+          variant: "destructive",
+        });
+      } else {
+        // Network or server errors
+        toast({
+          title: "❌ Erro ao enviar",
+          description: error instanceof Error ? error.message : "Tente novamente mais tarde.",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -158,9 +236,11 @@ export const ContactSection = () => {
                         onChange={handleInputChange}
                         placeholder="Nome"
                         required
-                        className="bg-input border-border focus:border-primary transition-colors"
+                        disabled={isSubmitting}
+                        className={`bg-input border-border focus:border-primary transition-colors ${errors.name ? 'border-destructive' : ''}`}
                         aria-label="Nome completo"
                       />
+                      {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-foreground">
@@ -174,9 +254,11 @@ export const ContactSection = () => {
                         onChange={handleInputChange}
                         placeholder="email@exemplo.com"
                         required
-                        className="bg-input border-border focus:border-primary transition-colors"
+                        disabled={isSubmitting}
+                        className={`bg-input border-border focus:border-primary transition-colors ${errors.email ? 'border-destructive' : ''}`}
                         aria-label="Endereço de email"
                       />
+                      {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
                     </div>
                   </div>
 
@@ -191,9 +273,11 @@ export const ContactSection = () => {
                         value={formData.company}
                         onChange={handleInputChange}
                         placeholder="Empresa (opcional)"
-                        className="bg-input border-border focus:border-primary transition-colors"
+                        disabled={isSubmitting}
+                        className={`bg-input border-border focus:border-primary transition-colors ${errors.company ? 'border-destructive' : ''}`}
                         aria-label="Nome da empresa"
                       />
+                      {errors.company && <p className="text-sm text-destructive mt-1">{errors.company}</p>}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone" className="text-foreground">
@@ -204,10 +288,12 @@ export const ContactSection = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="Telefone (opcional)"
-                        className="bg-input border-border focus:border-primary transition-colors"
+                        placeholder="(86) 9 8839-2791"
+                        disabled={isSubmitting}
+                        className={`bg-input border-border focus:border-primary transition-colors ${errors.phone ? 'border-destructive' : ''}`}
                         aria-label="Número de telefone"
                       />
+                      {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone}</p>}
                     </div>
                   </div>
 
@@ -220,12 +306,14 @@ export const ContactSection = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Descreva seu projeto..."
+                      placeholder="Descreva seu projeto ou necessidade..."
                       rows={6}
                       required
-                      className="bg-input border-border resize-none focus:border-primary transition-colors"
+                      disabled={isSubmitting}
+                      className={`bg-input border-border resize-none focus:border-primary transition-colors ${errors.message ? 'border-destructive' : ''}`}
                       aria-label="Mensagem"
                     />
+                    {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
                   </div>
 
                   <Button
@@ -233,10 +321,20 @@ export const ContactSection = () => {
                     size="lg"
                     variant="gradient"
                     className="w-full"
+                    disabled={isSubmitting}
                     aria-label="Enviar mensagem"
                   >
-                    <Send className="w-5 h-5 mr-2" />
-                    Enviar Mensagem
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        Enviar Mensagem
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>
