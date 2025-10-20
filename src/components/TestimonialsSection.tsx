@@ -21,10 +21,10 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Maria Santos",
-    role: "Diretora de Operações",
-    company: "InnovaSolutions",
-    content: "Trabalhar com a FluxCode foi excepcional. Eles desenvolveram uma solução de webscraping personalizada que nos deu vantagem competitiva no mercado.",
+    name: "Daysson Furtado",
+    role: "Diretor Executivo",
+    company: "Jump86",
+    content: "A FluxCode superou completamente minhas expectativas. Eu já conhecia o potencial da inteligência artificial, mas ver os agentes da FluxCode em ação foi transformador. Processos que antes levavam horas agora são resolvidos em minutos, sem perda de qualidade e, o melhor, com uma precisão impressionante.",
     rating: 5
   },
   {
