@@ -29,10 +29,10 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 3,
-    name: "João Oliveira",
-    role: "Gerente de TI",
-    company: "DataFlow Ltda",
-    content: "A equipe da FluxCode é altamente profissional e técnica. Entregaram um sistema complexo de automação dentro do prazo e superaram nossas expectativas.",
+    name: "Tiago Teixeira",
+    role: "Owner & Tech Manager",
+    company: "T&T Technology",
+    content: "Contratar a FluxCode foi, sem dúvida, uma das melhores decisões que tomei para o meu negócio. Desde o primeiro contato, a equipe demonstrou profissionalismo, agilidade e um profundo conhecimento técnico. O projeto foi entregue dentro do prazo, com uma qualidade que superou minhas expectativas. Além disso, o suporte após a entrega tem sido impecável. Recomendo fortemente a FluxCode para quem busca soluções digitais eficientes, personalizadas e com um atendimento de excelência.",
     rating: 5
   }
 ];
